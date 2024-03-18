@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-
 function IncrementCounter() {
     const [count, setCount] = useState(0);
-    
   return (
     <div className='counters'>
         <h1>{count}</h1>

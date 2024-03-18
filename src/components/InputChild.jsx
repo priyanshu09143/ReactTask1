@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import ChildComponent from './Child'
 function InputChild() {
     const [value , setValue] = useState("")
@@ -7,7 +6,6 @@ function InputChild() {
     const handleAddChild = () => {
       setChildComponents([...childComponents, <ChildComponent key={childComponents.length} value={value}/>]);
     };
-  
   return (
 <>
     <div className='DataBinding'>
@@ -20,11 +18,9 @@ function InputChild() {
         <div key={index}>{child}</div>
       ))}
     </div>
-
 </>
   )
 }
-
 export default InputChild
 
 
