@@ -8,6 +8,7 @@ import Search from './components/Search';
 import IncrementCounter from './components/IncrementCounter';
 import InputChild from './components/InputChild';
 import Show from './components/Show';
+import Dynamically from './components/Dynamically';
 import "./App.css"
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/AddChild" element={<InputChild />} />
           <Route path="/show" element={<Show />} />
+          <Route path="/dynamic" element={<Dynamically />} />
 
 
         </Routes>
