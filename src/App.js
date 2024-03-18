@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Basic from './components/Basic';
+import ArrayUser from './components/ArrayUser';
+import NavBar from './components/NavBar';
+import Counter from './components/Counter';
+import Search from './components/Search';
+import IncrementCounter from './components/IncrementCounter';
+import "./App.css"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Basic />} />
+          <Route path="/users" element={<ArrayUser />} />
+          <Route path="/counter" element={<IncrementCounter />} />
+          <Route path="/AddValue" element={<Counter />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
