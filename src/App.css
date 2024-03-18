@@ -1,6 +1,9 @@
 nav li a{
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  transition: all 0.3s;
 }
 nav li{
   list-style: none;
@@ -12,7 +15,7 @@ nav{
   
 }
 #root{
-  width: 50%;
+  width: 80%;
   margin: auto;
 }
 .Hide{
@@ -68,4 +71,44 @@ input{
 }
 .counters button:hover{
   box-shadow: inset 2px 4px 5px 0px rgba(0, 0, 0, 0.557), 1px 1px 10px;
+}
+.DataBinding{
+  margin-top:3rem  ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.DataBinding input {
+  border: none;
+  background-color: #eaeaea;
+  outline: none;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.show{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center ;
+}
+.show div button{
+  margin: 1rem;
+  background-color: #d8d8d8;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: inset 2px 4px 5px 0px rgba(0, 0, 0, 0.557);
+  color: #000;
+  border: none;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.show p{
+  font-size: 2rem;
+}
+a:hover{
+  color: #000;
+  background-color: #00000022;
 }

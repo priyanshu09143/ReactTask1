@@ -6,6 +6,8 @@ import NavBar from './components/NavBar';
 import Counter from './components/Counter';
 import Search from './components/Search';
 import IncrementCounter from './components/IncrementCounter';
+import InputChild from './components/InputChild';
+import Show from './components/Show';
 import "./App.css"
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
           <Route path="/counter" element={<IncrementCounter />} />
           <Route path="/AddValue" element={<Counter />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/AddChild" element={<InputChild />} />
+          <Route path="/show" element={<Show />} />
+
+
         </Routes>
       </Router>
     </>

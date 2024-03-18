@@ -20,7 +20,8 @@ function ArrayUser() {
             </div>
         )
     })}
-    <button className='Hide' onClick={() => setShow(!Show)}>{Show ? "Hide" : "Show"}</button>
+    <button onClick={()=>setShow(false)} disabled={!Show}>Hide</button>
+    <button onClick={()=>setShow(true)} disabled={Show}>Show</button>
     </>
   )
 }
