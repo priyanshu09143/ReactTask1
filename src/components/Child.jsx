@@ -1,8 +1,9 @@
 import React from 'react'
 
-function Child({value}) {
+function Child({title}) {
   return (
-    <div>Child Component</div>
+    <div>Child Component {title}</div>
+
   )
 }
 

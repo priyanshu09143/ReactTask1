@@ -112,3 +112,15 @@ a:hover{
   color: #000;
   background-color: #00000022;
 }
+.child{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  background-color: antiquewhite;
+  padding: 0.5rem;
+}
+.child button{
+  width: 20%;
+}
