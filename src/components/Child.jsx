@@ -1,10 +1,8 @@
-import React from 'react'
 
-function Child({title}) {
+function ChildComponent() {
   return (
-    <div>Child Component {title}</div>
-
-  )
+    <></>
+  );
 }
 
-export default Child
+export default ChildComponent

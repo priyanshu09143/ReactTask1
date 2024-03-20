@@ -2,42 +2,43 @@ import React, { useState } from 'react';
 import ChildComponent from './Child';
 
 function Dynamically() {
-  const [childComponents, setChildComponents] = useState([]);
-  const [additionalChildComponents, setAdditionalChildComponents] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [components, setComponents] = useState([]);
 
-  const handleAddChild = () => {
-    setChildComponents([...childComponents, <ChildComponent key={childComponents.length} />]);
-    setAdditionalChildComponents([...additionalChildComponents, []]);
+  const handleAddChild = (parentId) => {
+    const newComponent = { id: components.length, parentId: parentId };
+    setComponents([...components, newComponent]);
   };
 
-  const handleAddAnotherChild = (index) => {
-    const newAdditionalChild = <ChildComponent key={additionalChildComponents[index].length} title="Inside a child component" />;
-    setAdditionalChildComponents(prevState => {
-      const newState = [...prevState];
-      newState[index] = [...newState[index], newAdditionalChild];
-      return newState;
-    });
+  const handleParentClick = () => {
+    handleAddChild(null); // Adding a root component
   };
 
-  const handleChildClick = (index) => {
-    setActiveIndex(index);
+  const handleChildClick = (parentId) => {
+    handleAddChild(parentId); // Adding a child component
+  };
+
+  const renderChildComponents = (parentId) => {
+    return components
+      .filter(component => component.parentId === parentId)
+      .map((child, index) => (
+        <div key={child.id} className='child'>
+          <p onClick={() => handleChildClick(child.id)}>Child Component</p>
+          <ChildComponent />
+          {/* Recursive call to render child components within each child */}
+          <div className="nested-child">
+            {renderChildComponents(child.id)}
+          </div>
+        </div>
+      ));
   };
 
   return (
     <div>
-      <button onClick={handleAddChild}>Add Child Component</button>
-      {childComponents.map((child, index) => (
-        <div key={index} className='child' onClick={() => handleChildClick(index)}>
-          {child}
-          {activeIndex === index && (
-            <button onClick={() => handleAddAnotherChild(index)}>Add A New Child</button>
-          )}
-          { additionalChildComponents[index].map((anotherChild, subIndex) => (
-            <div key={subIndex}>{anotherChild}{anotherChild.length}</div>
-          ))}
-        </div>
-      ))}
+      <button onClick={handleParentClick}>Add Root Component</button>
+      <div className="parent">
+        {/* Render root level child components */}
+        {renderChildComponents(null)}
+      </div>
     </div>
   );
 }
